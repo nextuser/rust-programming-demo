@@ -1,0 +1,28 @@
+[package]
+name = "rust-programming"
+version = "0.1.0"
+edition = "2024"
+[[example]]
+name = "vectors"
+path = "examples/vectors.rs"
+
+[[example]]
+name = "box"
+path = "examples/box_var.rs"
+
+[[example]]
+name="guess"
+path = "examples/guess_number.rs"
+[[example]]
+name="guess_range"
+path = "examples/guess_range.rs"
+
+[[example]]
+name = "variables_consts"
+path = "examples/variables_consts.rs"
+[dependencies]
+csv = "1.4.0"
+rand = "0.9.2"
+rnd = "0.1.1"
+serde = "1.0.228"
+serde_json = "1.0.145"
