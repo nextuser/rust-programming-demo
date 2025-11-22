@@ -44,7 +44,7 @@ mod tests {
         }
     }
 
-    fn myDiv(left: i32, right: i32) -> (i32, i32) {
+    fn my_div(left: i32, right: i32) -> (i32, i32) {
         let divisor = left.abs() / right.abs() * sign(right) * sign(left);
         (divisor, (left.abs() % right.abs()) * sign(left))
     }
@@ -56,10 +56,10 @@ mod tests {
         println!("{} / {} =  {}, remainder {}", a, d, s, remainder)
     }
 
-    fn compareDiv(left: i32, right: i32) {
+    fn compare_div(left: i32, right: i32) {
         let diviser = left / right;
         let remainder = left % right;
-        let (diviser2, remainder2) = myDiv(left, right);
+        let (diviser2, remainder2) = my_div(left, right);
         assert_eq!(diviser, diviser2);
         assert_eq!(remainder, remainder2);
     }
@@ -73,10 +73,10 @@ mod tests {
 
     #[test]
     fn test_compare_div() {
-        compareDiv(-7, 5);
-        compareDiv(-7, -5);
-        compareDiv(7, -5);
-        compareDiv(7, 5);
+        compare_div(-7, 5);
+        compare_div(-7, -5);
+        compare_div(7, -5);
+        compare_div(7, 5);
     }
 
     use std::mem::size_of;

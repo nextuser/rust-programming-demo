@@ -2,9 +2,7 @@
 name = "rust-programming"
 version = "0.1.0"
 edition = "2024"
-[[example]]
-name = "vectors"
-path = "examples/vectors.rs"
+
 
 [[example]]
 name = "box"
