@@ -85,7 +85,7 @@ mod tests {
     impl  Data{
         fn myAbs(self) -> Self{
             match(self) {
-                _ if self.0 < 0 => - Self{-self.0},
+                _ if self.0 < 0 => Self(-self.0),
                 _ => self
             }
         }

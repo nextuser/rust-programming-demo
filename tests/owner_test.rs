@@ -53,7 +53,7 @@ fn ascii_capitalize(v : &mut Vec<char>){
     let c = &v[0];
 
     if c.is_ascii_lowercase() {
-        let up = c.to_ascii_lowercase();
+        let up = c.to_ascii_uppercase();
         //此时c 已经死亡，因此v 开始变得可用
         v[0] = up;
     } else {
@@ -63,8 +63,11 @@ fn ascii_capitalize(v : &mut Vec<char>){
 
 #[test]
 fn test_capitalize(){
-    let mut s = String::from("charles");
-    println!("result {}", &s);
+    let s = String::from("charles");
+    let mut v:Vec<char> = s.chars().collect();
+    println!("original: {}", &s);
+    ascii_capitalize(&mut v);
+    println!("result: {:?}",String::from_iter(v));
 }
 
 fn incr(n : &mut i32){

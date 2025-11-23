@@ -14,3 +14,8 @@
   qline q intuition # 查询单词含义
   qline list # 列出生词能查到intuition
 - qline 变体 使用完整ecdict数据库的例子， 是否能查更多单词，使用例子
+# 问题: box怎么实现根据包裹的类型T ,支持T的所有方法?
+```rust
+let t:T = ...
+let v = Box<T>::new(t)
+```

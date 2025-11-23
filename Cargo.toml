@@ -21,6 +21,9 @@ path = "examples/variables_consts.rs"
 [[example]]
 name = "box_link"
 path = "examples/box_link.rs"
+[[example]]
+name ="struct_demo"
+path = "examples/struct_demo.rs"
 
 [dependencies]
 csv = "1.4.0"

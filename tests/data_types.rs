@@ -1,8 +1,6 @@
 #[cfg(test)]
 
 mod tests {
-    use rnd::dist::Num;
-
     #[test]
     fn test_num() {
         let value = b'A';
@@ -30,7 +28,7 @@ mod tests {
     #[test]
     #[should_panic]
     fn test_overflow() {
-        let value = 3;
+        let value = 3u8;
         let c = value + 255; //will panic
         println!("c is {:#06x} {:#06x}", &value, &c)
     }
@@ -78,8 +76,6 @@ mod tests {
         compare_div(7, -5);
         compare_div(7, 5);
     }
-
-    use std::mem::size_of;
 
     #[test]
     fn test_size() {
