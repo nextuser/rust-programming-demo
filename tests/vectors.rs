@@ -78,3 +78,15 @@ fn test_vec_rw(){
     * x += y * 3;
     println!("v is {v:?}");
 }
+
+
+
+fn test_copy() {
+    let v = vec![String::from("Hello ")];
+    //can not move
+    //let mut s = v[0];
+
+    let mut s = v[0].clone();
+    s.push_str("world");
+    println!("{s}");
+}

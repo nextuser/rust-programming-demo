@@ -19,3 +19,5 @@
 let t:T = ...
 let v = Box<T>::new(t)
 ```
+
+- rust 一种奇特的语言，不能当做c/java 之类的语言换了一张皮

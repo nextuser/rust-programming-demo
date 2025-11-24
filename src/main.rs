@@ -3,6 +3,7 @@ use crate::models::enums::YesOrNo;
 mod models;
 mod models2;
 mod models3;
+
 use models::structs::Person;
 fn main() {
     println!("Hello, world!");

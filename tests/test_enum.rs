@@ -1,5 +1,7 @@
 #[allow(dead_code)]
 mod tests{
+    // use std::iter::Repeat;
+
     #[test]
     fn match_borrow(){
         let opt : Option<String> = Some(String::from("words"));
@@ -86,6 +88,46 @@ mod tests{
         let v1 = Option::Some(&3);
         let v2 = v1.copied();
         println!("v1:{v1:?} v2:{v2:?}");
+    }
+
+    fn handle_string(ostr : Option<String>) -> String{
+
+        //unwrap will  destruct s .
+        //let s = ostr.unwrap();
+        if  !ostr.is_none() {
+            //unwrap wile move self
+            ostr.unwrap().clone()
+        }  else{
+            " ".repeat(12)
+        }
+
+
+    }
+
+    fn get_or_default(arg: &Option<String>) -> String {
+        match arg {
+            None => String::new(),
+            Some(s) => s.clone()
+        }
+    }
+
+    fn match_str(ostr : &Option<String>) ->String{
+        match ostr {
+            //match 解出valu是引用，不会触发枚举结构的析构
+            Some(s) => s.clone(),
+            None  => "".to_string()
+        }
+    }
+    #[test]
+    fn test_unwrap(){
+        let o1 = &Some("abc".to_string());
+        let o2 : &Option<String> = &None;
+        println!("o1 {o1:?}, o2 {o2:?}");
+        let s1 = match_str(o1);
+        let s2 = match_str(o2);
+        println!("s1 {s1}, s2 {s2}");
+        //assert_eq!(match_str(o1),o1);
+        //assert_eq!(match_str(o2),"".to_string());
     }
 
 }

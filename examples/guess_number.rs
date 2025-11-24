@@ -1,6 +1,6 @@
 use std::io;
 use rand;
-use rand::{Rng, RngCore};
+use rand::{Rng};
 
 fn main(){
     const MAX:u32 = 50;

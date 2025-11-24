@@ -40,6 +40,7 @@ struct Point{
     y : i32
 }
 
+#[allow(dead_code)]
 impl Point{
     //实例方法以self开头
     fn dist_from_origin(&self) -> i32{
@@ -66,6 +67,7 @@ impl Point{
 }
 
 struct Color(i32,i32,i32);
+#[allow(deadcode)]
 impl Color{
     fn red(&self)->i32{
         self.0
@@ -77,6 +79,10 @@ fn test_color(){
     impl Color{
         fn green(&self) ->i32{
             self.1
+        }
+
+        fn msg(&self) ->String {
+            format!("r {} g {} b{}", &self.0,&self.1,&self.2)
         }
     }
     println!("green:{}",c.green());
