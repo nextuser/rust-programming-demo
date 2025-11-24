@@ -106,4 +106,15 @@ mod tests {
         // - vector 分配在heap，长度可变
         // 数组和vector 每个成员类型一样
     }
+    //shadowing
+    #[test]
+    fn test_shadowing(){
+        let x = 5;
+        let x = x + 1;
+        {
+            let x = x * 2;
+            assert_eq!(x,12)
+        }
+        assert_eq!(x,6);
+    }
 }

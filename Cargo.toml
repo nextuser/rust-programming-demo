@@ -25,6 +25,10 @@ path = "examples/box_link.rs"
 name ="struct_demo"
 path = "examples/struct_demo.rs"
 
+[[example]]
+name= "overflow_demo"
+path = "examples/overflow_demo.rs"
+
 [dependencies]
 csv = "1.4.0"
 rand = "0.9.2"
