@@ -1,7 +1,7 @@
 #[cfg(test)]
 mod tests{
-    #[derive(Copy,Clone)]
-    #[derive(Debug)]
+    #[derive(Clone,Debug)]
+    #[allow(dead_code)]
     struct Rectangle{
         width:u32,
         height:u32,
@@ -17,14 +17,29 @@ mod tests{
             }
         }
         fn set_to_max(&mut self,other:&Rectangle) {
-            let max = self.max(other);
-            drop(*self);
+            let max = self.clone().max(other);
             *self = max;
 
         }
     }
-    fn drop(t : Rectangle){
-        println!("dropeed{:?}" ,&t);
-    }
 
+
+    #[test]
+    fn test_max(){
+        let r1 = Rectangle{
+            width:20,
+            height:30
+        };
+        let r2 = Rectangle{
+            width:40,
+            height:10,
+        };
+        let mut r3 = r1.clone();
+        let max_rect = r1.max(&r2);
+        println!("max is {max_rect:?}");
+
+        r3.set_to_max(&r2);
+        println!("max is {r3:?}");
+
+    }
 }

@@ -81,6 +81,7 @@ fn test_vec_rw(){
 
 
 
+#[test]
 fn test_copy() {
     let v = vec![String::from("Hello ")];
     //can not move

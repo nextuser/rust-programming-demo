@@ -1,3 +1,4 @@
+#[allow(dead_code)]
 enum MyOption<T> {
     Some(T), //enum 参数表现有点像元组
     None
@@ -14,7 +15,7 @@ impl <T:Copy>  MyOption<&T> {
         let x = 42;
         let opt_ref : MyOption<&i32> = MyOption::Some(&x);
 
-        let opt_val :MyOption<i32> = opt_ref.copied();
+        let _opt_val :MyOption<i32> = opt_ref.copied();
     }
 
 

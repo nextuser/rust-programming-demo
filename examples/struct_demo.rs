@@ -66,8 +66,9 @@ impl Point{
     }
 }
 
+#[allow(dead_code)]
 struct Color(i32,i32,i32);
-#[allow(deadcode)]
+
 impl Color{
     fn red(&self)->i32{
         self.0
@@ -82,7 +83,7 @@ fn test_color(){
         }
 
         fn msg(&self) ->String {
-            format!("r {} g {} b{}", &self.0,&self.1,&self.2)
+            format!("r {} g {} b{}", &self.red(),&self.1,&self.2)
         }
     }
     println!("green:{}",c.green());

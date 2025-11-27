@@ -7,7 +7,7 @@ fn main(){
     let mut buf = String::new();
     //这个使用新的随机数API
     let target = rand::rng().random_range(0..=MAX);
-    ///println!("Target: {target}");  //调试的时候先打印出结果
+    //println!("Target: {target}");  调试的时候先打印出结果
 
     'outer: loop {
         println!("Guess the number 0..{MAX}:");
