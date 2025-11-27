@@ -17,12 +17,20 @@ impl<X1,Y1> Point<X1,Y1>
     }
 }
 
+impl <X,Y> PartialEq for Point<X,Y>
+where X :PartialEq , Y:PartialEq
+{
+    fn eq(&self,other : &Self) -> bool{
+        ( self.x == other.x) && (self.y == other.y)
+    }
+}
+
 #[test]
 fn test_mixup(){
-    let p1 = Point{x:3,y:4};
+    let p1 = Point{x:3i32,y:4i32};
     let p2 = Point{x:-8f32,y:-9f32};
     let p3 = p1.mixup(p2);
-    assert_eq!(p3.x ,p1.x);
-    assert_eq!(p3.y ,p2.y);
+    let expect : Point<i32,f32> = Point{x:p1.x,y:p2.y};
+    assert_eq!(p3,expect);
 }
 
