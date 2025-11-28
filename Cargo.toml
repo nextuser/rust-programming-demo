@@ -29,6 +29,13 @@ path = "examples/struct_demo.rs"
 name= "overflow_demo"
 path = "examples/overflow_demo.rs"
 
+[[bin]]
+name = "minigrep"
+path = "src/bin/minigrep/main.rs"
+[lib]
+name = "minigre_lib"       # 库的名称（默认是项目名）
+path = "src/bin/minigrep/lib.rs"     # 自定义入口文件（非 src/lib.rs）
+crate-type = ["lib"]       # 库类型（默认是 "lib"，即 Rust 库）
 
 
 [dependencies]

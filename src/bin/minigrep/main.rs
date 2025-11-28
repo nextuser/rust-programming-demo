@@ -1,40 +1,23 @@
 use std::env;
-// use std::ffi::OsString;
-// use std::fs;
-// mod config;
-// use config::Config;
-// //use crate::Config;
-// struct Param{
-//     query : String,
-//     file : String
-// }
-// fn parse_config(args:&Vec<OsString>) ->Param{
-//     if args.len() < 3 {
-//         panic!("not enough arguments:\n minigrep query  filename");
-//     }
-//     Param{
-//         query : args.get(1).expect("need query string arg: \n").clone().into_string().unwrap(),
-//         file : args.get(2).expect("need file arg").clone().into_string().unwrap()
-//     }
-// }
-mod config;
-use config::Config;
-
+//由于代码在bin下面，需要再Cargo.toml定义[lib]
+use minigre_lib::config::Config;
+//mod config;
 use std::ffi::OsString;
+//use config::Config;
+
 fn main(){
     let args : Vec<OsString> = env::args_os().collect();
     let args :Vec<String> = args.iter().map(|e| e.clone().into_string().expect("invalid into string")).collect();
     //dbg!(&args);
-    let config = Config::build(&args);
-    println!("after build:");
-    if let Err(msg) = config {
-        println!("error: {msg}");
-    } else  {
-        println!("before run");
-        if let Err(value) = config.unwrap().run() {
-           println!("搜索错误:{}", &value);
+    let config = Config::build(&args).unwrap_or_else({
+        |err| {
+            eprintln!("{}",err);
+            std::process::exit(1);
         }
-    }
+    });
+
+    config.run().unwrap_or_else(|err| println!("搜索错误:{}", &err));
+
 
     // if let Some(v) = result {
     //     for line in v {
